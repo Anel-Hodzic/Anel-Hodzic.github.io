@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Anel Hodzic | Electrical Engineering Portfolio</title>
+<meta name="description" content="Electrical engineering and computer science student at the University of Adelaide. PCB design, motor control, embedded systems and automotive diagnostics.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --mask: #0e3b2f;
+    --mask-deep: #0a2c23;
+    --copper: #d39a5b;
+    --paper: #f5f6f2;
+    --ink: #15201b;
+    --muted: #55625b;
+    --rule: #d5dad3;
+    --link: #0c6a50;
+    --head: "Bricolage Grotesque", "Segoe UI", Helvetica, Arial, sans-serif;
+    --body: "Source Serif 4", Georgia, "Times New Roman", serif;
+    box-sizing: border-box;
+  }
+  *, *::before, *::after { box-sizing: inherit; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 1.0625rem;
+    line-height: 1.65;
+  }
+  a { color: var(--link); text-underline-offset: 3px; }
+  a:focus-visible { outline: 3px solid var(--copper); outline-offset: 3px; border-radius: 2px; }
+
+  /* Hero */
+  .hero {
+    position: relative;
+    overflow: hidden;
+    background: var(--mask);
+    color: var(--paper);
+    padding: 5.5rem 1.5rem 4.5rem;
+  }
+  .hero-inner { position: relative; z-index: 1; max-width: 1040px; margin: 0 auto; }
+  .hero h1 {
+    font-family: var(--head);
+    font-weight: 700;
+    font-size: clamp(2.8rem, 8vw, 5.6rem);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    margin: 0 0 1.25rem;
+  }
+  .hero p.lead {
+    max-width: 34rem;
+    margin: 0 0 2rem;
+    font-size: 1.2rem;
+    color: #dbe5df;
+  }
+  .hero nav { display: flex; flex-wrap: wrap; gap: 0.5rem 1.75rem; font-family: var(--head); font-weight: 500; }
+  .hero nav a { color: var(--copper); }
+  .hero nav a:focus-visible { outline-color: var(--paper); }
+  .traces {
+    position: absolute;
+    right: 0; top: 0;
+    width: 42%; height: 100%;
+    z-index: 0;
+    opacity: 0.9;
+  }
+  .traces path { fill: none; stroke: var(--copper); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+  .traces .pad { fill: var(--mask); stroke: var(--copper); stroke-width: 3; }
+  .traces path { stroke-dasharray: 1400; stroke-dashoffset: 1400; animation: draw 2.6s ease-out 0.2s forwards; }
+  .traces .pad { opacity: 0; animation: pop 0.3s ease-out 2.3s forwards; }
+  @keyframes draw { to { stroke-dashoffset: 0; } }
+  @keyframes pop { to { opacity: 1; } }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .traces path { animation: none; stroke-dashoffset: 0; }
+    .traces .pad { animation: none; opacity: 1; }
+  }
+  @media (max-width: 720px) { .traces { width: 100%; opacity: 0.35; } }
+
+  /* Layout */
+  main { max-width: 1040px; margin: 0 auto; padding: 0 1.5rem; }
+  .row {
+    display: grid;
+    grid-template-columns: 230px minmax(0, 1fr);
+    gap: 1rem 3rem;
+    padding: 3rem 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .row:last-of-type { border-bottom: 0; }
+  .row h2 {
+    font-family: var(--head);
+    font-weight: 700;
+    font-size: 1.5rem;
+    line-height: 1.2;
+    margin: 0 0 0.5rem;
+  }
+  .stack { margin: 0; color: var(--muted); font-size: 0.95rem; line-height: 1.5; }
+  .row p { margin: 0 0 1rem; max-width: 40rem; }
+  .row h3 {
+    font-family: var(--head);
+    font-weight: 700;
+    font-size: 1.05rem;
+    margin: 1.5rem 0 0.4rem;
+  }
+  .row ul { margin: 0 0 1rem; padding-left: 1.2rem; max-width: 40rem; }
+  .row li { margin-bottom: 0.4rem; }
+  @media (max-width: 720px) {
+    .row { grid-template-columns: minmax(0, 1fr); padding: 2.25rem 0; }
+  }
+
+  /* Photos and captions */
+  figure { margin: 1.5rem 0; }
+  figure img, figure video { display: block; max-width: 100%; height: auto; border-radius: 4px; border: 1px solid var(--rule); }
+  figcaption { margin-top: 0.5rem; font-size: 0.92rem; color: var(--muted); }
+
+  /* Footer */
+  footer { background: var(--mask-deep); color: #dbe5df; padding: 3rem 1.5rem; }
+  footer .inner { max-width: 1040px; margin: 0 auto; }
+  footer h2 { font-family: var(--head); font-size: 1.5rem; margin: 0 0 0.75rem; color: var(--paper); }
+  footer p { margin: 0 0 1rem; max-width: 36rem; }
+  footer a { color: var(--copper); }
+  footer a:focus-visible { outline-color: var(--paper); }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <svg class="traces" viewBox="0 0 800 420" preserveAspectRatio="xMaxYMid slice" aria-hidden="true">
+    <path d="M0 80 H260 L320 140 H560 L620 80 H760"/>
+    <path d="M0 200 H180 L240 260 H480 L540 200 H800"/>
+    <path d="M120 420 V330 L180 270"/>
+    <path d="M300 420 V360 L360 300 H640 L700 360 H800"/>
+    <path d="M560 0 V50 L620 110"/>
+    <circle class="pad" cx="760" cy="80" r="9"/>
+    <circle class="pad" cx="620" cy="80" r="9"/>
+    <circle class="pad" cx="540" cy="200" r="9"/>
+    <circle class="pad" cx="180" cy="270" r="9"/>
+    <circle class="pad" cx="700" cy="360" r="9"/>
+  </svg>
+  <div class="hero-inner">
+    <h1>Anel Hodzic</h1>
+    <p class="lead">Electrical engineering and computer science student at the University of Adelaide. Designs PCBs, motor control and embedded systems, and diagnoses faults on cars.</p>
+    <nav aria-label="Links">
+      <a href="Anel_Hodzic_Resume.pdf">Resume (PDF)</a>
+      <a href="https://github.com/Anel-Hodzic">GitHub</a>
+      <a href="https://www.linkedin.com/in/YOUR-LINKEDIN-NAME">LinkedIn</a>
+      <a href="mailto:YOUR-EMAIL@example.com">Email</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="row" id="robot-vacuum">
+    <div>
+      <h2>Robot vacuum</h2>
+      <p class="stack">BLDC motor, ESP32, infrared sensors, servos, custom 555-based buck converters, LTspice, KiCad</p>
+    </div>
+    <div>
+      <p>An autonomous vacuum that maps a room with infrared sensors and builds a confidence map of where cleaning is needed. A brushless DC motor drives the suction, and servos handle precise positioning.</p>
+
+      <h3>Design process</h3>
+      <ul>
+        <li>Sketched the system on paper as separate modules first, to list what each part needs, then designed each module on its own and combined them into one design.</li>
+        <li>Simulated the full design in LTspice to check that the fundamentals work and to read the voltage and current at each point.</li>
+        <li>Used the simulation results to size the PCB traces.</li>
+        <li>Calculated voltage divider values for the multiplexer, heat loss in the voltage regulators, and PWM settings for the 555 timers.</li>
+      </ul>
+
+      <h3>First board revision</h3>
+      <p>The first design was a single large, mostly through-hole PCB. Testing found a fault in the second buck converter, errors in the multiplexer signals and errors in the NAND gate logic.</p>
+
+      <h3>Second revision (in progress)</h3>
+      <ul>
+        <li>SMD parts, which are easier to solder and scale better for production.</li>
+        <li>Smaller board, which lowers cost.</li>
+        <li>Four layers with a full ground plane, giving a short ground path and less EMI.</li>
+        <li>Digital logic and small-signal lines routed away from the large power traces to reduce noise.</li>
+        <li>Wide power traces on the outer layers for better heat dissipation.</li>
+      </ul>
+
+      <!-- PHOTOS: copy a block like this for each image. Put image files in an "images" folder.
+      <figure>
+        <img src="images/robot-vacuum-breadboard.jpg" alt="Breadboard prototype of the motor driver and ESP32">
+        <figcaption>Breadboard stage: motor driver and ESP32 logic.</figcaption>
+      </figure>
+      <figure>
+        <img src="images/robot-vacuum-pcb-v1.jpg" alt="First revision through-hole PCB">
+        <figcaption>First revision board, with the faults found in testing.</figcaption>
+      </figure>
+      <figure>
+        <img src="images/robot-vacuum-pcb-v2.png" alt="KiCad layout of the 4-layer second revision">
+        <figcaption>KiCad layout of the 4-layer second revision.</figcaption>
+      </figure>
+      -->
+    </div>
+  </section>
+
+  <section class="row" id="audi-a3">
+    <div>
+      <h2>Audi A3 diagnostics</h2>
+      <p class="stack">2014 Audi A3. Scan tool live data, multimeter, component testing</p>
+    </div>
+    <div>
+      <p>Fault finding on my own car, working from data and measurements to the root cause before replacing any part.</p>
+      <ul>
+        <li><strong>Turbo actuator.</strong> Logged live scan tool data while driving, interpreted the readings to find the fault, then replaced and calibrated the actuator.</li>
+        <li><strong>Front sensor.</strong> The sensor stopped working. Tests separated the sensor from the wiring loom, and the fault turned out to be the connector, the least expected cause. Multimeter continuity checks and voltage readings located it, and the connector was taken apart and repaired.</li>
+        <li><strong>Daytime running light.</strong> Opened the headlight and inspected the modules. The rear main module was water damaged, so it was replaced and the headlight was resealed with silicone to stop the leak.</li>
+        <li><strong>Component testing.</strong> Removed parts such as the diverter valve, turbo actuator and camshaft actuator and actuated each one individually to check its operation.</li>
+      </ul>
+
+      <!-- PHOTOS:
+      <figure>
+        <img src="images/audi-connector.jpg" alt="Damaged connector from the front sensor">
+        <figcaption>The damaged connector that caused the front sensor fault.</figcaption>
+      </figure>
+      -->
+    </div>
+  </section>
+
+  <section class="row" id="go-kart">
+    <div>
+      <h2>Go kart</h2>
+      <p class="stack">Welding, steel tube, 3D printing, PWM control PCB</p>
+    </div>
+    <div>
+      <p>A go kart built before university.</p>
+      <ul>
+        <li>Fabricated the frame from steel tube using a welder and fasteners.</li>
+        <li>Designed the steering system and 3D printed the steering wheel.</li>
+        <li>Designed a PCB for PWM control.</li>
+        <li>Chose the gear ratio to balance top speed and acceleration.</li>
+      </ul>
+
+      <!-- PHOTOS:
+      <figure>
+        <img src="images/go-kart.jpg" alt="Finished go kart">
+        <figcaption>The finished go kart.</figcaption>
+      </figure>
+      -->
+    </div>
+  </section>
+
+  <section class="row" id="chessboard">
+    <div>
+      <h2>Interactive chessboard</h2>
+      <p class="stack">Hall effect sensors, multiplexer, LEDs</p>
+    </div>
+    <div>
+      <p>A chessboard that tracks where each piece sits using hall effect sensors read through a multiplexer. Code works out the legal moves for a piece and shows where it can go, and LEDs under the board flash red when a move is illegal. This was an early project before university, so all the sensors are hand wired without a PCB.</p>
+
+      <!-- PHOTOS:
+      <figure>
+        <img src="images/chessboard.jpg" alt="Chessboard with sensors and LEDs">
+        <figcaption>Chessboard with hall effect sensors and LEDs.</figcaption>
+      </figure>
+      -->
+    </div>
+  </section>
+
+  <section class="row" id="software-fpga">
+    <div>
+      <h2>Software and FPGA</h2>
+      <p class="stack">C++, MATLAB, SystemVerilog, Vivado</p>
+    </div>
+    <div>
+      <ul>
+        <li><strong>Trading simulator (C++).</strong> Built with two friends. Uses the Black-Scholes equation to judge trades, and supports buying, selling and options trading.</li>
+        <li><strong>Object tracker (MATLAB).</strong> Finds the objects moving the most in a video and draws bounding boxes around them.</li>
+        <li><strong>FPGA projects.</strong> A calculator, plus basic PWM and signal processing.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="row" id="cad-printing">
+    <div>
+      <h2>CAD and 3D printing</h2>
+      <p class="stack">Inventor, Fusion 360, 3DEXPERIENCE</p>
+    </div>
+    <div>
+      <p>Designed and printed a lightsaber keychain and Rick and Morty keychains in Inventor. Also used 3DEXPERIENCE for university work and taught myself Fusion 360.</p>
+    </div>
+  </section>
+
+  <section class="row" id="home-network">
+    <div>
+      <h2>Home network and privacy</h2>
+      <p class="stack">WireGuard, Pi-hole, Linux Mint, GrapheneOS</p>
+    </div>
+    <div>
+      <p>A privacy-focused home setup: a WireGuard VPN configured from the Linux terminal, Pi-hole for DNS filtering, Linux Mint on the desktop and GrapheneOS on the phone.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="inner">
+    <h2>Contact</h2>
+    <p>Studying a double degree in Electrical Engineering and Computer Science at the University of Adelaide. Based in Adelaide, South Australia.</p>
+    <p>
+      <a href="mailto:YOUR-EMAIL@example.com">YOUR-EMAIL@example.com</a><br>
+      <a href="https://www.linkedin.com/in/YOUR-LINKEDIN-NAME">LinkedIn</a> &nbsp; <a href="https://github.com/Anel-Hodzic">GitHub</a> &nbsp; <a href="Anel_Hodzic_Resume.pdf">Resume (PDF)</a>
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>
