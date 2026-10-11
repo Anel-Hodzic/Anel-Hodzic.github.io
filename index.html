@@ -167,14 +167,81 @@
       <ul>
         <li>Sketched the system on paper as separate modules first, to list what each part needs, then designed each module on its own and combined them into one design.</li>
         <li>Simulated the full design in LTspice to check that the fundamentals work and to read the voltage and current at each point.</li>
-        <li>Used the simulation results to size the PCB traces.</li>
-        <li>Calculated voltage divider values for the multiplexer, heat loss in the voltage regulators, and PWM settings for the 555 timers.</li>
+        <li>Used the simulation results to size the PCB traces, and determine whether heat sinks were neccecary.</li>
+        <li>Calculated voltage divider values for the multiplexer, heat loss in the voltage regulators, and PWM settings for the 555 timers for the buck converters.</li>
       </ul>
+      <figure>
+        <img src="images/modular connections rv design.jpg" alt="KiCad layout of the 4-layer second revision">
+        <figcaption></figcaption>
+      </figure>
+      <figure>
+        <img src="images/obj det sys rv design.jpg" alt="Modular design prototyping">
+        <figcaption></figcaption>
+      </figure>
+      <figure>
+        <img src="images/modular on off rv design.jpg" alt="on off modular design">
+        <figcaption></figcaption>
+      </figure>
+      <figure>
+        <img src="images/moving system rv design.jpg" alt="KiCad layout of the 4-layer second revision">
+        <figcaption></figcaption>
+      </figure>
+      <figure>
+        <img src="images/mapping system rv design.jpg" alt="KiCad layout of the 4-layer second revision">
+        <figcaption></figcaption>
+      </figure>
+            <figure>
+        <img src="images/complete circuit plan.jpg" alt="KiCad layout of the 4-layer second revision">
+        <figcaption></figcaption>
+      </figure>
+            <figure>
+        <img src="images/obj det sys rv design.jpg" alt="KiCad layout of the 4-layer second revision">
+        <figcaption></figcaption>
+      </figure>
+      <h3>Version One PCB Designing and Simulating</h3>
+      <p>The main circuit block was simulated in LTspice. This included simulating the motors at stall conditions to ensure the circuit was rated adequately incase the motors jammed. This simulation aided in finding the steady state buck converter voltage, as well as peak current draws for the linear regulators.</p>
+      
+      <figure>
+        <img src="images/LTspice circuit.png" alt="KiCad layout of the 4-layer second revision">
+        <figcaption></figcaption>
+      </figure>
+            <figure>
+        <img src="images/LTspice circuit 2.png" alt="KiCad layout of the 4-layer second revision">
+        <figcaption></figcaption>
+      </figure>
+      <p>After simulating the circuit I recreated the circuit in KiCad with the correct components, connectors and switches</p>
+
+      <figure>
+        <img src="images/kicad schematic.png" alt="KiCad layout of the 4-layer second revision">
+        <figcaption></figcaption>
+      </figure>
+            <figure>
+        <img src="images/kicad footprint.png" alt="KiCad layout of the 4-layer second revision">
+        <figcaption></figcaption>
+      </figure>
+      <figure>
+        <img src="images/kicad 3d render.png" alt="KiCad layout of the 4-layer second revision">
+      <figcaption></figcaption>
+      </figure>
 
       <h3>First board revision</h3>
-      <p>The first design was a single large, mostly through-hole PCB. Testing found a fault in the second buck converter, errors in the multiplexer signals and errors in the NAND gate logic.</p>
+      <p>The first design was a single large, mostly through-hole PCB. When testing I found a fault in the second buck converter, errors in the multiplexer signals and errors in the NAND gate logic.</p>
+      
+      <figure>
+        <img src="images/rv soldering.jpg" alt="KiCad layout of the 4-layer second revision">
+        <figcaption></figcaption>
+      </figure>
+      <figure>
+        <img src="images/rv soldering 2.jpg" alt="KiCad layout of the 4-layer second revision">
+        <figcaption></figcaption>
+      </figure>
+      <figure>
+        <img src="images/rv testing pcb.jpg" alt="KiCad layout of the 4-layer second revision">
+        <figcaption></figcaption>
+      </figure>
 
       <h3>Second revision (in progress)</h3>
+      <p>The current improvements I am working on for the second version of the robot vacuum include:</p>
       <ul>
         <li>SMD parts, which are easier to solder and scale better for production.</li>
         <li>Smaller board, which lowers cost.</li>
@@ -182,28 +249,13 @@
         <li>Digital logic and small-signal lines routed away from the large power traces to reduce noise.</li>
         <li>Wide power traces on the outer layers for better heat dissipation.</li>
       </ul>
-
-      <!-- PHOTOS: copy a block like this for each image. Put image files in an "images" folder.
-      <figure>
-        <img src="images/robot-vacuum-breadboard.jpg" alt="Breadboard prototype of the motor driver and ESP32">
-        <figcaption>Breadboard stage: motor driver and ESP32 logic.</figcaption>
-      </figure>
-      <figure>
-        <img src="images/robot-vacuum-pcb-v1.jpg" alt="First revision through-hole PCB">
-        <figcaption>First revision board, with the faults found in testing.</figcaption>
-      </figure>
-      <figure>
-        <img src="images/robot-vacuum-pcb-v2.png" alt="KiCad layout of the 4-layer second revision">
-        <figcaption>KiCad layout of the 4-layer second revision.</figcaption>
-      </figure>
-      -->
     </div>
   </section>
 
   <section class="row" id="audi-a3">
     <div>
       <h2>Audi A3 diagnostics</h2>
-      <p class="stack">2014 Audi A3. Scan tool live data, multimeter, component testing</p>
+      <p class="stack">2013 Audi A3. Scan tool live data, multimeter, component testing</p>
     </div>
     <div>
       <p>Fault finding on my own car, working from data and measurements to the root cause before replacing any part.</p>
@@ -214,19 +266,41 @@
         <li><strong>Component testing.</strong> Removed parts such as the diverter valve, turbo actuator and camshaft actuator and actuated each one individually to check its operation.</li>
       </ul>
 
-      <!-- PHOTOS:
       <figure>
-        <img src="images/audi-connector.jpg" alt="Damaged connector from the front sensor">
-        <figcaption>The damaged connector that caused the front sensor fault.</figcaption>
+        <img src="images/Turbo5.jpg" alt="Breadboard prototype of the motor driver and ESP32">
+        <figcaption></figcaption>
       </figure>
-      -->
+      <figure>
+        <img src="images/Turbo6.jpg" alt="First revision through-hole PCB">
+        <figcaption></figcaption>
+      </figure>
+      <figure>
+        <img src="images/Turbo7.jpg" alt="KiCad layout of the 4-layer second revision">
+        <figcaption></figcaption>
+      </figure>
+            <figure>
+        <img src="images/Turbo2.jpg" alt="Breadboard prototype of the motor driver and ESP32">
+        <figcaption></figcaption>
+      </figure>
+      <figure>
+        <img src="images/Turbo1.jpg" alt="First revision through-hole PCB">
+        <figcaption></figcaption>
+      </figure>
+      <figure>
+        <img src="images/Turbo3.jpg" alt="KiCad layout of the 4-layer second revision">
+        <figcaption></figcaption>
+      </figure>
+      <figure>
+        <img src="images/Turbo4.jpg" alt="KiCad layout of the 4-layer second revision">
+        <figcaption></figcaption>
+      </figure>
     </div>
   </section>
 
   <section class="row" id="go-kart">
     <div>
       <h2>Go kart</h2>
-      <p class="stack">Welding, steel tube, 3D printing, PWM control PCB</p>
+      <p class="stack">Welding steel, 3D printing, PWM control PCB</p>
     </div>
     <div>
       <p>A go kart built before university.</p>
@@ -237,12 +311,18 @@
         <li>Chose the gear ratio to balance top speed and acceleration.</li>
       </ul>
 
-      <!-- PHOTOS:
       <figure>
-        <img src="images/go-kart.jpg" alt="Finished go kart">
-        <figcaption>The finished go kart.</figcaption>
+        <img src="images/gokart1.jpg" alt="Chessboard with sensors and LEDs">
+        <figcaption>/figcaption>
       </figure>
-      -->
+      <figure>
+        <img src="images/gokart2.jpg" alt="Chessboard with sensors and LEDs">
+        <figcaption><figcaption>
+      </figure>
+            <figure>
+        <img src="images/gokart3.png" alt="Chessboard with sensors and LEDs">
+        <figcaption><figcaption>
+      </figure>
     </div>
   </section>
 
@@ -254,12 +334,16 @@
     <div>
       <p>A chessboard that tracks where each piece sits using hall effect sensors read through a multiplexer. Code works out the legal moves for a piece and shows where it can go, and LEDs under the board flash red when a move is illegal. This was an early project before university, so all the sensors are hand wired without a PCB.</p>
 
-      <!-- PHOTOS:
+      
       <figure>
-        <img src="images/chessboard.jpg" alt="Chessboard with sensors and LEDs">
-        <figcaption>Chessboard with hall effect sensors and LEDs.</figcaption>
+        <img src="images/chess1.jpg" alt="Chessboard with sensors and LEDs">
+        <figcaption>/figcaption>
       </figure>
-      -->
+      <figure>
+        <img src="images/chess3.png" alt="Chessboard with sensors and LEDs">
+        <figcaption>Illegal chess move causes board to flash<figcaption>
+      </figure>
+
     </div>
   </section>
 
@@ -272,18 +356,18 @@
       <ul>
         <li><strong>Trading simulator (C++).</strong> Built with two friends. Uses the Black-Scholes equation to aid in making decisions on what type of trade you should take. You can then simulate your trade with real previous stock data</li>
         <figure>
-        <img src="BlackScholes1.png" alt="C++ Black Scholes trading simulator">
+        <img src="Images/BlackScholes1.png" alt="C++ Black Scholes trading simulator">
       </figure>
       <figure>
-        <img src="BlackScholes2.png" alt="C++ Black Scholes trading simulator">
+        <img src="Images/BlackScholes2.png" alt="C++ Black Scholes trading simulator">
         <figcaption>C++ Black Scholes trading simulator</figcaption>
       </figure>
         <li><strong>Object tracker (MATLAB).</strong> A program which runs live and finds the objects which are currently moving the most and draws bounding boxes around them.</li>
          <figure>
-        <img src="Matlab1.png" alt="Matlab object tracking example 1">
+        <img src="Images/Matlab1.png" alt="Matlab object tracking example 1">
       </figure>
       <figure>
-        <img src="Matlab2.png" alt="Matlab object tracking example 2">
+        <img src="Images/Matlab2.png" alt="Matlab object tracking example 2">
         <figcaption>Matlab Object Tracking</figcaption>
         <li><strong>FPGA projects.</strong> A calculator built on an FPGA developnment board, plus PWM and audio signal processing projects.</li>
       </ul>
@@ -308,7 +392,7 @@
     <div>
       <p>Set up a privacy-focused home setup, including a WireGuard VPN configured from the Linux terminal, Pi-hole for DNS filtering, Linux Mint on the desktop and GrapheneOS on the phone.</p>
     <figure>
-        <img src="PiHoleDash.png" alt="Pi Hole screen">
+        <img src="Images/PiHoleDash.png" alt="Pi Hole screen">
       </figure>
     </div>
      
