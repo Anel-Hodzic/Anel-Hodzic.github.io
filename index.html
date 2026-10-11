@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Anel Hodzic | Electrical Engineering Portfolio</title>
 <meta name="description" content="Electrical engineering and computer science student at the University of Adelaide. PCB design, motor control, embedded systems and automotive diagnostics.">
-<link rel="preconnect" href="https:/ /fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
 <style>
@@ -116,6 +116,7 @@
   figure { margin: 1.5rem 0; }
   figure img, figure video { display: block; max-width: 100%; height: auto; border-radius: 4px; border: 1px solid var(--rule); }
   figcaption { margin-top: 0.5rem; font-size: 0.92rem; color: var(--muted); }
+  figcaption:empty { display: none; }
 
   /* Footer */
   footer { background: var(--mask-deep); color: #dbe5df; padding: 3rem 1.5rem; }
@@ -167,72 +168,69 @@
       <ul>
         <li>Sketched the system on paper as separate modules first, to list what each part needs, then designed each module on its own and combined them into one design.</li>
         <li>Simulated the full design in LTspice to check that the fundamentals work and to read the voltage and current at each point.</li>
-        <li>Used the simulation results to size the PCB traces, and determine whether heat sinks were neccecary.</li>
+        <li>Used the simulation results to size the PCB traces, and determine whether heat sinks were necessary.</li>
         <li>Calculated voltage divider values for the multiplexer, heat loss in the voltage regulators, and PWM settings for the 555 timers for the buck converters.</li>
       </ul>
       <figure>
-        <img src="images/modular connections rv design.jpg" alt="KiCad layout of the 4-layer second revision">
+        <img src="Images/modular%20connections%20rv%20design.jpg" alt="Hand-drawn diagram of the connections between robot vacuum modules">
         <figcaption></figcaption>
       </figure>
       <figure>
-        <img src="images/obj det sys rv design.jpg" alt="Modular design prototyping">
+        <img src="Images/obj%20det%20sys%20rv%20design.jpg" alt="Hand-drawn design of the object detection module">
         <figcaption></figcaption>
       </figure>
       <figure>
-        <img src="images/modular on off rv design.jpg" alt="on off modular design">
+        <img src="Images/modular%20on%20off%20rv%20design.jpg" alt="Hand-drawn design of the on and off module">
         <figcaption></figcaption>
       </figure>
       <figure>
-        <img src="images/moving system rv design.jpg" alt="KiCad layout of the 4-layer second revision">
+        <img src="Images/moving%20system%20rv%20design.jpg" alt="Hand-drawn design of the moving system module">
         <figcaption></figcaption>
       </figure>
       <figure>
-        <img src="images/mapping system rv design.jpg" alt="KiCad layout of the 4-layer second revision">
+        <img src="Images/mapping%20system%20rv%20design.jpg" alt="Hand-drawn design of the mapping system module">
         <figcaption></figcaption>
       </figure>
-            <figure>
-        <img src="images/complete circuit plan.jpg" alt="KiCad layout of the 4-layer second revision">
+      <figure>
+        <img src="Images/complete%20circuit%20plan.jpg" alt="Complete circuit plan combining all modules">
         <figcaption></figcaption>
       </figure>
-            <figure>
-        <img src="images/obj det sys rv design.jpg" alt="KiCad layout of the 4-layer second revision">
-        <figcaption></figcaption>
-      </figure>
+
       <h3>Version One PCB Designing and Simulating</h3>
-      <p>The main circuit block was simulated in LTspice. This included simulating the motors at stall conditions to ensure the circuit was rated adequately incase the motors jammed. This simulation aided in finding the steady state buck converter voltage, as well as peak current draws for the linear regulators.</p>
-      
-      <figure>
-        <img src="images/LTspice circuit.png" alt="KiCad layout of the 4-layer second revision">
-        <figcaption></figcaption>
-      </figure>
-            <figure>
-        <img src="images/LTspice circuit 2.png" alt="KiCad layout of the 4-layer second revision">
-        <figcaption></figcaption>
-      </figure>
-      <p>After simulating the circuit I recreated the circuit in KiCad with the correct components, connectors and switches</p>
+      <p>The main circuit block was simulated in LTspice. This included simulating the motors at stall conditions to ensure the circuit was rated adequately in case the motors jammed. This simulation aided in finding the steady state buck converter voltage, as well as peak current draws for the linear regulators.</p>
 
       <figure>
-        <img src="images/kicad schematic.png" alt="KiCad layout of the 4-layer second revision">
-        <figcaption></figcaption>
-      </figure>
-            <figure>
-        <img src="images/kicad footprint.png" alt="KiCad layout of the 4-layer second revision">
+        <img src="Images/LTspice%20circuit.png" alt="LTspice simulation of the main circuit block">
         <figcaption></figcaption>
       </figure>
       <figure>
-        <img src="images/kicad 3d render.png" alt="KiCad layout of the 4-layer second revision">
-      <figcaption></figcaption>
+        <img src="Images/LTspice%20circuit%202.png" alt="LTspice simulation results">
+        <figcaption></figcaption>
+      </figure>
+      <p>After simulating the circuit I recreated the circuit in KiCad with the correct components, connectors and switches.</p>
+
+      <figure>
+        <img src="Images/kicad%20schematic.png" alt="KiCad schematic of the first revision">
+        <figcaption></figcaption>
+      </figure>
+      <figure>
+        <img src="Images/kicad%20footprint.png" alt="KiCad PCB footprint layout of the first revision">
+        <figcaption></figcaption>
+      </figure>
+      <figure>
+        <img src="Images/kicad%203d%20render.png" alt="KiCad 3D render of the first revision board">
+        <figcaption></figcaption>
       </figure>
 
       <h3>First board revision</h3>
       <p>The first design was a single large, mostly through-hole PCB. When testing I found a fault in the second buck converter, errors in the multiplexer signals and errors in the NAND gate logic.</p>
-      
+
       <figure>
-        <img src="images/rv soldering.jpg" alt="KiCad layout of the 4-layer second revision">
+        <img src="Images/rv%20soldering.jpg" alt="Soldering the first revision board">
         <figcaption></figcaption>
       </figure>
       <figure>
-        <img src="images/rv testing pcb.jpg" alt="KiCad layout of the 4-layer second revision">
+        <img src="Images/rv%20testing%20pcb.jpg" alt="Testing the first revision board">
         <figcaption></figcaption>
       </figure>
 
@@ -263,23 +261,23 @@
       </ul>
 
       <figure>
-        <img src="images/Turbo5.jpg" alt="Breadboard prototype of the motor driver and ESP32">
+        <img src="Images/Turbo5.jpg" alt="Turbo actuator diagnosis photo 1">
         <figcaption></figcaption>
       </figure>
       <figure>
-        <img src="images/Turbo7.jpg" alt="KiCad layout of the 4-layer second revision">
-        <figcaption></figcaption>
-      </figure>
-            <figure>
-        <img src="images/Turbo2.jpg" alt="Breadboard prototype of the motor driver and ESP32">
+        <img src="Images/Turbo7.jpg" alt="Turbo actuator diagnosis photo 2">
         <figcaption></figcaption>
       </figure>
       <figure>
-        <img src="images/Turbo3.jpg" alt="KiCad layout of the 4-layer second revision">
+        <img src="Images/Turbo2.jpg" alt="Turbo actuator diagnosis photo 3">
         <figcaption></figcaption>
       </figure>
       <figure>
-        <img src="images/Turbo4.jpg" alt="KiCad layout of the 4-layer second revision">
+        <img src="Images/Turbo3.jpg" alt="Turbo actuator diagnosis photo 4">
+        <figcaption></figcaption>
+      </figure>
+      <figure>
+        <img src="Images/Turbo4.jpg" alt="Turbo actuator diagnosis photo 5">
         <figcaption></figcaption>
       </figure>
     </div>
@@ -300,16 +298,16 @@
       </ul>
 
       <figure>
-        <img src="images/gokart1.jpg" alt="Chessboard with sensors and LEDs">
-        <figcaption>/figcaption>
+        <img src="Images/gokart1.jpg" alt="Go kart photo 1">
+        <figcaption></figcaption>
       </figure>
       <figure>
-        <img src="images/gokart2.jpg" alt="Chessboard with sensors and LEDs">
-        <figcaption><figcaption>
+        <img src="Images/gokart2.jpg" alt="Go kart photo 2">
+        <figcaption></figcaption>
       </figure>
-            <figure>
-        <img src="images/gokart3.png" alt="Chessboard with sensors and LEDs">
-        <figcaption><figcaption>
+      <figure>
+        <img src="Images/gokart3.png" alt="Go kart photo 3">
+        <figcaption></figcaption>
       </figure>
     </div>
   </section>
@@ -322,16 +320,14 @@
     <div>
       <p>A chessboard that tracks where each piece sits using hall effect sensors read through a multiplexer. Code works out the legal moves for a piece and shows where it can go, and LEDs under the board flash red when a move is illegal. This was an early project before university, so all the sensors are hand wired without a PCB.</p>
 
-      
       <figure>
-        <img src="images/chess1.jpg" alt="Chessboard with sensors and LEDs">
-        <figcaption>/figcaption>
+        <img src="Images/chess1.jpg" alt="Chessboard with sensors and LEDs">
+        <figcaption></figcaption>
       </figure>
       <figure>
-        <img src="images/chess3.png" alt="Chessboard with sensors and LEDs">
-        <figcaption>Illegal chess move causes board to flash<figcaption>
+        <img src="Images/chess3.png" alt="Chessboard flashing red after an illegal move">
+        <figcaption>Illegal chess move causes board to flash</figcaption>
       </figure>
-
     </div>
   </section>
 
@@ -342,18 +338,23 @@
     </div>
     <div>
       <ul>
-        <li><strong>Trading simulator (C++).</strong> Built with two friends. Uses the Black-Scholes equation to aid in making decisions on what type of trade you should take. You can then simulate your trade with real previous stock data</li>
-        <figure>
-        <img src="Images/BlackScholes1.png" alt="C++ Black Scholes trading simulator">
-      </figure>
-        <li><strong>Object tracker (MATLAB).</strong> A program which runs live and finds the objects which are currently moving the most and draws bounding boxes around them.</li>
-         <figure>
-        <img src="Images/Matlab1.png" alt="Matlab object tracking example 1">
-      </figure>
-      <figure>
-        <img src="Images/Matlab2.png" alt="Matlab object tracking example 2">
-        <figcaption>Matlab Object Tracking</figcaption>
-        <li><strong>FPGA projects.</strong> A calculator built on an FPGA developnment board, plus PWM and audio signal processing projects.</li>
+        <li><strong>Trading simulator (C++).</strong> Built with two friends. Uses the Black-Scholes equation to aid in making decisions on what type of trade you should take. You can then simulate your trade with real previous stock data.
+          <figure>
+            <img src="Images/BlackScholes1.png" alt="C++ Black-Scholes trading simulator">
+            <figcaption>C++ trading simulator</figcaption>
+          </figure>
+        </li>
+        <li><strong>Object tracker (MATLAB).</strong> A program which runs live and finds the objects which are currently moving the most and draws bounding boxes around them.
+          <figure>
+            <img src="Images/Matlab1.png" alt="MATLAB object tracking example 1">
+            <figcaption></figcaption>
+          </figure>
+          <figure>
+            <img src="Images/Matlab2.png" alt="MATLAB object tracking example 2">
+            <figcaption>MATLAB object tracking</figcaption>
+          </figure>
+        </li>
+        <li><strong>FPGA projects.</strong> A calculator built on an FPGA development board, plus PWM and audio signal processing projects.</li>
       </ul>
     </div>
   </section>
@@ -375,11 +376,11 @@
     </div>
     <div>
       <p>Set up a privacy-focused home setup, including a WireGuard VPN configured from the Linux terminal, Pi-hole for DNS filtering, Linux Mint on the desktop and GrapheneOS on the phone.</p>
-    <figure>
-        <img src="Images/PiHoleDash.png" alt="Pi Hole screen">
+      <figure>
+        <img src="Images/PiHoleDash.png" alt="Pi-hole dashboard">
+        <figcaption></figcaption>
       </figure>
     </div>
-     
   </section>
 
 </main>
@@ -389,7 +390,7 @@
     <h2>Contact</h2>
     <p>Studying a double degree in Electrical Engineering and Computer Science at the University of Adelaide. Based in Adelaide, South Australia.</p>
     <p>
-      <a href="anelhodzic02@gmail.com">anelhodzic02@gmail.com</a><br>
+      <a href="mailto:anelhodzic02@gmail.com">anelhodzic02@gmail.com</a><br>
       <a href="https://www.linkedin.com/in/anel-hodzic-a04b3a38b">LinkedIn</a> &nbsp; <a href="https://github.com/Anel-Hodzic">GitHub</a> &nbsp; <a href="Anel_Hodzic_Resume.pdf">Resume (PDF)</a>
     </p>
   </div>
